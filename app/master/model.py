@@ -49,7 +49,7 @@ db.Table('company_location',
          )
 
 
-class LocationSchema(ma.ModelSchema):
+class LocationSchema(ma.Schema):
     class Meta:
         model = Location
 
@@ -64,7 +64,7 @@ class City(db.Model):
     def __init__(self, name):
         self.name = name
 
-class CitySchema(ma.ModelSchema):
+class CitySchema(ma.Schema):
     class Meta:
         model = City
 
@@ -79,7 +79,7 @@ class Appointment(db.Model):
         self.name = name
 
 
-class AppointmentSchema(ma.ModelSchema):
+class AppointmentSchema(ma.Schema):
     class Meta:
         model = Appointment
 
@@ -93,7 +93,7 @@ class Department(db.Model):
         self.name = name
 
 
-class DepartmentSchema(ma.ModelSchema):
+class DepartmentSchema(ma.Schema):
     class Meta:
         model = Department
 
@@ -107,7 +107,7 @@ class Post(db.Model):
         self.name = name
 
 
-class PostSchema(ma.ModelSchema):
+class PostSchema(ma.Schema):
     class Meta:
         model = Post
 
@@ -121,7 +121,7 @@ class Benefit(db.Model):
         self.name = name
 
 
-class BenefitSchema(ma.ModelSchema):
+class BenefitSchema(ma.Schema):
     class Meta:
         model = Benefit
 
@@ -135,7 +135,7 @@ class ModeOfPay(db.Model):
         self.name = name
 
 
-class PaySchema(ma.ModelSchema):
+class PaySchema(ma.Schema):
     class Meta:
         model = ModeOfPay
 
@@ -169,21 +169,21 @@ class AttendenceRules(db.Model):
         self.early_going_day = early_going_day
 
 
-class PerformanceSchema(ma.ModelSchema):
+class PerformanceSchema(ma.Schema):
     class Meta:
         model = Performance
 
-class AttendenceRuleSchema(ma.ModelSchema):
+class AttendenceRuleSchema(ma.Schema):
     class Meta:
         model = AttendenceRules
 
 
-class EmployeeCatSchema(ma.ModelSchema):
+class EmployeeCatSchema(ma.Schema):
     class Meta:
         model = EmployeeCategory
 
 
-class CompanySchema(ma.ModelSchema):
+class CompanySchema(ma.Schema):
     location = ma.Nested(LocationSchema, many=True)
 
     class Meta:
